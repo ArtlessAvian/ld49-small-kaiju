@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/crunchy.wav-fbee3690db5e254df03d0f71a99f035b.sample"
+
+[deps]
+
+source_file="res://Game/Assets/crunchy.wav"
+dest_files=[ "res://.import/crunchy.wav-fbee3690db5e254df03d0f71a99f035b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

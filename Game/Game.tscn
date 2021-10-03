@@ -1,0 +1,251 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Game/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Game/DiskSampler.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Game/Things/Skyscraper.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Game/Collision.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Game/Things/Car.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Game/Things/House.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Game/Things/Tree.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Game/Things/McMansion.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Game/Game.gd" type="Script" id=9]
+[ext_resource path="res://Game/SpeedrunTimer.gd" type="Script" id=10]
+[ext_resource path="res://Game/Assets/digital-7.mono.ttf" type="DynamicFontData" id=11]
+[ext_resource path="res://Game/Things/Nothing.tscn" type="PackedScene" id=12]
+
+[sub_resource type="PhysicsMaterial" id=1]
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+outline_size = 3
+outline_color = Color( 0.364706, 0, 0, 1 )
+font_data = ExtResource( 11 )
+
+[node name="Game" type="Spatial"]
+script = ExtResource( 9 )
+
+[node name="Collision" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.0559, 0, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -46.5847, 0, 20.2154 )
+
+[node name="Skyscraper" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.62297, 0, 0 )
+
+[node name="Thing" parent="Skyscraper" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.4013, 11.717, -25.9027 )
+physics_material_override = SubResource( 1 )
+
+[node name="LakesideHouse" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -48.733, 3, 13.905 )
+physics_material_override = SubResource( 1 )
+
+[node name="Cars2" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38.4434, 4.07683, 13.8139 )
+scene = ExtResource( 5 )
+max_radius = 2.0
+max_amount = 4
+
+[node name="Trees4" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -43.4803, 8.00829, 16.1703 )
+scene = ExtResource( 7 )
+max_radius = 3.0
+spacing = 3.0
+max_amount = 5
+
+[node name="Trees" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9896, 8.12583, -3.6252 )
+scene = ExtResource( 7 )
+other = ExtResource( 6 )
+spacing = 4.0
+max_amount = 40
+
+[node name="Trees2" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5844, 8.00829, 21.1164 )
+scene = ExtResource( 7 )
+other = ExtResource( 6 )
+spacing = 4.0
+max_amount = 40
+
+[node name="Houses4" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8549, 4.07683, 10.2121 )
+scene = ExtResource( 6 )
+other = ExtResource( 8 )
+spacing = 4.0
+max_amount = 30
+grid_like = true
+
+[node name="Houses2" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 2.10682e-05, 0.000418349, 0, 0.998734, -0.0502966, -0.000418879, 0.0502966, 0.998734, 53.6313, 4.07683, 15.8985 )
+scene = ExtResource( 7 )
+other = ExtResource( 12 )
+max_radius = 9.0
+spacing = 2.0
+max_amount = 30
+
+[node name="McMansions" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6978, 6.01528, -15.255 )
+scene = ExtResource( 8 )
+max_radius = 12.0
+spacing = 6.0
+max_amount = 30
+grid_like = true
+
+[node name="McMansions2" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 33.6189, 6.01528, 6.87866 )
+scene = ExtResource( 6 )
+spacing = 5.0
+max_amount = 30
+grid_like = true
+
+[node name="Trees3" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45.9414, 8.12583, -15.3612 )
+scene = ExtResource( 7 )
+spacing = 4.0
+max_amount = 40
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = -9.0
+margin_right = 42.0
+margin_bottom = 31.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control"]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 0.521569, 0.521569, 1 )
+text = "TIMER"
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="body_entered" from="Cars2/Thing" to="Cars2/Thing" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Cars2/Thing2" to="Cars2/Thing2" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Cars2/Thing3" to="Cars2/Thing3" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Cars2/Thing4" to="Cars2/Thing4" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees4/Thing" to="Trees4/Thing" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees4/Thing2" to="Trees4/Thing2" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees4/Thing3" to="Trees4/Thing3" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees4/Thing4" to="Trees4/Thing4" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees/Thing" to="Trees/Thing" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees/Thing2" to="Trees/Thing2" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees/Thing3" to="Trees/Thing3" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees/Thing4" to="Trees/Thing4" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees/Thing5" to="Trees/Thing5" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees/Thing6" to="Trees/Thing6" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees/Thing7" to="Trees/Thing7" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees/Thing8" to="Trees/Thing8" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees/Thing9" to="Trees/Thing9" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees/Thing10" to="Trees/Thing10" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees/Thing11" to="Trees/Thing11" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees/Thing12" to="Trees/Thing12" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees/Thing13" to="Trees/Thing13" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees/Thing14" to="Trees/Thing14" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees/Thing15" to="Trees/Thing15" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees/Thing16" to="Trees/Thing16" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees2/Thing" to="Trees2/Thing" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees2/Thing2" to="Trees2/Thing2" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees2/Thing3" to="Trees2/Thing3" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees2/Thing4" to="Trees2/Thing4" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees2/Thing5" to="Trees2/Thing5" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees2/Thing6" to="Trees2/Thing6" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees2/Thing7" to="Trees2/Thing7" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees2/Thing8" to="Trees2/Thing8" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees2/Thing9" to="Trees2/Thing9" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees2/Thing10" to="Trees2/Thing10" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees2/Thing11" to="Trees2/Thing11" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees2/Thing12" to="Trees2/Thing12" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees2/Thing13" to="Trees2/Thing13" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees2/Thing14" to="Trees2/Thing14" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees2/Thing15" to="Trees2/Thing15" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees2/Thing16" to="Trees2/Thing16" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees2/Thing17" to="Trees2/Thing17" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees2/Thing18" to="Trees2/Thing18" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees2/Thing19" to="Trees2/Thing19" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees2/Thing20" to="Trees2/Thing20" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Houses4/Thing" to="Houses4/Thing" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Houses4/Thing2" to="Houses4/Thing2" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Houses4/Thing3" to="Houses4/Thing3" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Houses4/Thing4" to="Houses4/Thing4" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Houses4/Thing5" to="Houses4/Thing5" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Houses4/Thing6" to="Houses4/Thing6" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Houses4/Thing7" to="Houses4/Thing7" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Houses4/Thing8" to="Houses4/Thing8" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Houses4/Thing9" to="Houses4/Thing9" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Houses4/Thing10" to="Houses4/Thing10" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Houses4/Thing11" to="Houses4/Thing11" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Houses4/Thing12" to="Houses4/Thing12" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Houses4/Thing13" to="Houses4/Thing13" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Houses4/Thing14" to="Houses4/Thing14" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Houses4/Thing15" to="Houses4/Thing15" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Houses4/Thing16" to="Houses4/Thing16" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Houses4/Thing17" to="Houses4/Thing17" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Houses4/Thing18" to="Houses4/Thing18" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Houses4/Thing19" to="Houses4/Thing19" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Houses2/Thing" to="Houses2/Thing" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Houses2/Thing2" to="Houses2/Thing2" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Houses2/Thing3" to="Houses2/Thing3" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Houses2/Thing4" to="Houses2/Thing4" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Houses2/Thing5" to="Houses2/Thing5" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Houses2/Thing6" to="Houses2/Thing6" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Houses2/Thing7" to="Houses2/Thing7" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Houses2/Thing8" to="Houses2/Thing8" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Houses2/Thing9" to="Houses2/Thing9" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Houses2/Thing10" to="Houses2/Thing10" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Houses2/Thing11" to="Houses2/Thing11" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Houses2/Thing12" to="Houses2/Thing12" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Houses2/Thing13" to="Houses2/Thing13" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Houses2/Thing14" to="Houses2/Thing14" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Houses2/Thing15" to="Houses2/Thing15" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="McMansions/Thing" to="McMansions/Thing" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="McMansions/Thing2" to="McMansions/Thing2" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="McMansions/Thing3" to="McMansions/Thing3" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="McMansions/Thing4" to="McMansions/Thing4" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="McMansions/Thing5" to="McMansions/Thing5" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="McMansions/Thing6" to="McMansions/Thing6" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="McMansions/Thing7" to="McMansions/Thing7" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="McMansions/Thing8" to="McMansions/Thing8" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="McMansions/Thing9" to="McMansions/Thing9" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="McMansions/Thing10" to="McMansions/Thing10" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="McMansions/Thing11" to="McMansions/Thing11" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="McMansions/Thing12" to="McMansions/Thing12" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="McMansions/Thing13" to="McMansions/Thing13" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="McMansions2/Thing" to="McMansions2/Thing" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="McMansions2/Thing2" to="McMansions2/Thing2" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="McMansions2/Thing3" to="McMansions2/Thing3" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="McMansions2/Thing4" to="McMansions2/Thing4" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="McMansions2/Thing5" to="McMansions2/Thing5" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="McMansions2/Thing6" to="McMansions2/Thing6" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="McMansions2/Thing7" to="McMansions2/Thing7" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="McMansions2/Thing8" to="McMansions2/Thing8" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="McMansions2/Thing9" to="McMansions2/Thing9" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="McMansions2/Thing10" to="McMansions2/Thing10" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="McMansions2/Thing11" to="McMansions2/Thing11" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="McMansions2/Thing12" to="McMansions2/Thing12" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="McMansions2/Thing13" to="McMansions2/Thing13" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees3/Thing" to="Trees3/Thing" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees3/Thing2" to="Trees3/Thing2" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees3/Thing3" to="Trees3/Thing3" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees3/Thing4" to="Trees3/Thing4" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees3/Thing5" to="Trees3/Thing5" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees3/Thing6" to="Trees3/Thing6" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees3/Thing7" to="Trees3/Thing7" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees3/Thing8" to="Trees3/Thing8" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees3/Thing9" to="Trees3/Thing9" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees3/Thing10" to="Trees3/Thing10" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees3/Thing11" to="Trees3/Thing11" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees3/Thing12" to="Trees3/Thing12" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees3/Thing13" to="Trees3/Thing13" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees3/Thing14" to="Trees3/Thing14" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees3/Thing15" to="Trees3/Thing15" method="_on_Thing_body_entered"]
+[connection signal="body_entered" from="Trees3/Thing16" to="Trees3/Thing16" method="_on_Thing_body_entered"]

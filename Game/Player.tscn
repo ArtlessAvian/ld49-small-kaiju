@@ -323,7 +323,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.0833333, 0.116667, 0.2 ),
+"times": PoolRealArray( -0.017, 0.0833333, 0.116667, 0.2 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 0, 100 ), Vector2( 0, 100 ), Vector2( 0, 0 ) ]
@@ -335,7 +335,7 @@ collision_mask = 255
 script = ExtResource( 3 )
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform( 1, 0, -1.74845e-07, 0, 1, 0, 1.74846e-07, 0, 1, 0, 0.5, 0 )
+transform = Transform( 1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 0, 0.5, 0 )
 flip_h = true
 pixel_size = 0.002
 texture = ExtResource( 1 )
